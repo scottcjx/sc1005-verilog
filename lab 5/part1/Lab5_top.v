@@ -28,8 +28,8 @@ module Lab5_top(input clk, rst, sel, output [6:0] seg_L, output [3:0] anode_L);
     // declare necessary wires here
 
     // instantiate modules here
-    scroll uut1 
-    slow_clkgen uut2 
+    scroll uut1(.clk(clk), .rst(rst));
+    slow_clkgen uut2(.clk(clk), .rst(rst));
     seg7_driver uut3 (.clk(clk), .rst(rst), .sel(sel), .value(value), .anode_d(4'b0000), .seg_L(seg_L), .anode_L(anode_L));
 
 endmodule
