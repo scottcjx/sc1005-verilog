@@ -27,10 +27,10 @@ module scroll(
             // if (d > 4'hF) assign d = d - 4'hF;
 
             // part 2 step 6 -> instantiate convert module for each letter to display.
-            convert bitA(.in(a), .out(display));
-            convert bitB(.in(b), .out(display));
-            convert bitC(.in(c), .out(display));
-            convert bitD(.in(d), .out(display));
+            convert bitA(.in(a), .out(display[3:0]));
+            convert bitB(.in(b), .out(display[7:4]));
+            convert bitC(.in(c), .out(display[]));
+            convert bitD(.in(d), .out(display[d]));
 	end
 
 
