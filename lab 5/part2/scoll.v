@@ -16,21 +16,21 @@ module scroll(
              count <= count + 1'b1;
 
             assign a = count;
-            assign b = count + 1'd1;
-            assign c = count + 1'd2;
-            assign d = count + 1'd3;
+            assign b = count + 2'b01;
+            assign c = count + 2'b10;
+            assign d = count + 2'b11;
 
-            if (a > 15) assign a = a - 15;
-            if (b > 15) assign b = b - 15;
-            if (c > 15) assign c = c - 15;
-            if (d > 15) assign d = d - 15;
+            // need check if will oflow, if oflow then need to correct.
+            // if (a > 4'hF) assign a = a - 4'hF;
+            // if (b > 4'hF) assign b = b - 4'hF;
+            // if (c > 4'hF) assign c = c - 4'hF;
+            // if (d > 4'hF) assign d = d - 4'hF;
 
-            // part 2 step -> 6 too tired to do this now. goodnight
-
-            // convert bitA(.a, display);
-            // convert bitB(.b, display);
-            // convert bitC(.c, display);
-            // convert bitD(.d, display);
+            // part 2 step 6 -> instantiate convert module for each letter to display.
+            convert bitA(.in(a), .out(display));
+            convert bitB(.in(b), .out(display));
+            convert bitC(.in(c), .out(display));
+            convert bitD(.in(d), .out(display));
 	end
 
 
